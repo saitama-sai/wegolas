@@ -376,91 +376,91 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
   };
 
   return (
-    <div className="space-y-28 pb-0 font-sans">
-      {/* 1. Hero Section (Screenshot 1) */}
-      <section className="pt-44 pb-16 px-6 lg:px-16 text-center max-w-5xl mx-auto space-y-6 relative bg-white text-black z-10">
-        <h1 className="font-syne text-5xl sm:text-7xl md:text-8xl font-extrabold text-black tracking-tighter leading-[1.02]">
+    <div className="space-y-20 sm:space-y-28 pb-0 font-sans w-full max-w-full overflow-x-hidden">
+      {/* 1. Hero Section (Mobil için %100 tam genişlik, Masaüstü aynı) */}
+      <section className="pt-28 sm:pt-44 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-16 text-center max-w-5xl mx-auto space-y-6 relative bg-white text-black z-10 w-full">
+        <h1 className="font-syne text-4xl sm:text-7xl md:text-8xl font-extrabold text-black tracking-tighter leading-[1.05]">
           {t('heroTag')}
         </h1>
 
-        <p className="text-gray-700 text-lg md:text-2xl max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="text-gray-700 text-base sm:text-xl md:text-2xl max-w-2xl mx-auto font-light leading-relaxed px-2">
           {t('heroDesc')}
         </p>
       </section>
 
-      {/* 2. Hero Video / 3D Screen Showcase Card (Screenshot 2) */}
-      <section className="px-6 lg:px-16 max-w-7xl mx-auto relative bg-white z-10">
+      {/* 2. Hero Video / 3D Screen Showcase Card (Mobilde Yanları Dolduran 100% Genişlik) */}
+      <section className="px-3 sm:px-6 lg:px-16 max-w-7xl mx-auto relative bg-white z-10 w-full">
         <div
           onMouseEnter={() => sounds.playHover()}
           data-cursor="PLAY"
           data-cursor-variant="project"
-          className="relative w-full h-[60vh] md:h-[75vh] rounded-[2.5rem] bg-gradient-to-tr from-sky-400 via-blue-500 to-indigo-600 overflow-hidden shadow-2xl flex items-center justify-center cursor-pointer group"
+          className="relative w-full h-[55vh] sm:h-[60vh] md:h-[75vh] rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-tr from-sky-400 via-blue-500 to-indigo-600 overflow-hidden shadow-2xl flex items-center justify-center cursor-pointer group"
         >
           {/* Simulated 3D Screen Monitor Mockup */}
-          <div className="w-[85%] h-[80%] rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-900 border-4 border-blue-300/40 p-8 md:p-12 text-white flex flex-col justify-between shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-700">
+          <div className="w-[94%] sm:w-[85%] h-[88%] sm:h-[80%] rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-900 border-2 sm:border-4 border-blue-300/40 p-5 sm:p-8 md:p-12 text-white flex flex-col justify-between shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-700">
             <div className="space-y-2">
-              <span className="text-xs font-mono tracking-widest opacity-80 uppercase">
+              <span className="text-[10px] sm:text-xs font-mono tracking-widest opacity-80 uppercase">
                 CERTIFY YOUR BUILDING AS A DIGITAL TWIN TOKEN (DTT)
               </span>
-              <h2 className="font-syne text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+              <h2 className="font-syne text-2xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
                 Experience Real <br /> Estate Agility.
               </h2>
             </div>
-            <p className="text-sm md:text-lg opacity-90 max-w-xl font-light">
+            <p className="text-xs sm:text-base md:text-lg opacity-90 max-w-xl font-light">
               The Digital Twin Token is a unique digital asset backed by property data. Magma combines your physical building metrics with WebGL real-time analytics.
             </p>
           </div>
 
           {/* Yellow Circular Play Button Overlay */}
-          <div className="absolute w-20 h-20 rounded-full bg-amber-400 text-black flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-            <Play className="w-8 h-8 fill-current translate-x-0.5" />
+          <div className="absolute w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-400 text-black flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+            <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-current translate-x-0.5" />
           </div>
         </div>
       </section>
 
       {/* 3. WHAT WE DO Section */}
-      <section className="px-6 lg:px-16 py-24 max-w-7xl mx-auto space-y-16 relative bg-white text-black z-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      <section className="px-3 sm:px-6 lg:px-16 py-16 sm:py-24 max-w-7xl mx-auto space-y-12 sm:space-y-16 relative bg-white text-black z-20 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
           <div className="md:col-span-3 space-y-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-black block">
               {t('whatWeDo')}
             </span>
           </div>
           <div className="md:col-span-9">
-            <p className="font-syne text-2xl sm:text-4xl font-bold text-black leading-snug">
+            <p className="font-syne text-xl sm:text-3xl md:text-4xl font-bold text-black leading-snug">
               {t('whatWeDoDesc')}
             </p>
           </div>
         </div>
 
         {/* Sticky Stacking Cards Container */}
-        <div className="space-y-8 pb-12">
+        <div className="space-y-6 sm:space-y-8 pb-12 w-full">
           {whatWeDoList.map((item, index) => {
             return (
               <div
                 key={item.num}
                 onMouseEnter={() => sounds.playHover()}
-                style={{ top: `${7 + index * 1.5}rem`, zIndex: (index + 1) * 10 }}
-                className={`sticky rounded-[2.5rem] ${item.bgColor} text-white p-8 md:p-14 overflow-hidden shadow-2xl border border-white/10 transition-transform duration-500 min-h-[340px] flex flex-col justify-center`}
+                style={{ top: `${5 + index * 1.2}rem`, zIndex: (index + 1) * 10 }}
+                className={`sticky rounded-[2rem] sm:rounded-[2.5rem] ${item.bgColor} text-white p-6 sm:p-8 md:p-14 overflow-hidden shadow-2xl border border-white/10 transition-transform duration-500 min-h-[300px] sm:min-h-[340px] flex flex-col justify-center w-full`}
               >
                 {/* 1. ÜST KATMAN: Metin İçeriği (z-10) */}
-                <div className="relative z-10 w-full md:w-3/5 space-y-5">
-                  <h3 className="font-syne text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                <div className="relative z-10 w-full md:w-3/5 space-y-4 sm:space-y-5">
+                  <h3 className="font-syne text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
                     {item.title}
                   </h3>
 
-                  <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light">
+                  <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed font-light">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Sağ Üst Sıra Numarası (z-10) */}
-                <div className="absolute top-8 md:top-12 right-8 md:right-12 z-10 text-gray-500 font-mono text-lg md:text-xl font-bold">
+                <div className="absolute top-6 sm:top-8 md:top-12 right-6 sm:right-8 md:right-12 z-10 text-gray-500 font-mono text-base sm:text-lg md:text-xl font-bold">
                   {item.num}
                 </div>
 
                 {/* 2. ALT KATMAN: Sağ Taraftaki Geometrik SVG (z-0) */}
-                <div className="absolute bottom-0 right-0 md:right-8 w-64 md:w-96 z-0 pointer-events-none opacity-85">
+                <div className="absolute bottom-0 right-0 md:right-8 w-48 sm:w-64 md:w-96 z-0 pointer-events-none opacity-80 sm:opacity-85">
                   {renderCardSvg(item.svgType)}
                 </div>
               </div>
@@ -470,17 +470,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       </section>
 
       {/* 4. Trusted by remarkable global brands */}
-      <section className="px-6 lg:px-16 py-20 bg-white border-t border-gray-100 text-center space-y-12 relative z-30">
-        <h2 className="font-syne text-2xl sm:text-3xl font-extrabold text-black">
+      <section className="px-3 sm:px-6 lg:px-16 py-16 sm:py-20 bg-white border-t border-gray-100 text-center space-y-10 sm:space-y-12 relative z-30 w-full">
+        <h2 className="font-syne text-xl sm:text-2xl md:text-3xl font-extrabold text-black">
           Trusted by remarkable global brands
         </h2>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-10 gap-x-8 items-center justify-items-center opacity-85">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-8 sm:gap-y-10 gap-x-6 sm:gap-x-8 items-center justify-items-center opacity-85">
           {clientLogos.map((logo) => (
             <span
               key={logo.name}
               onMouseEnter={() => sounds.playHover()}
-              className={`${logo.font} text-xl md:text-2xl text-gray-900 hover:text-black hover:scale-105 transition-all cursor-pointer`}
+              className={`${logo.font} text-base sm:text-xl md:text-2xl text-gray-900 hover:text-black hover:scale-105 transition-all cursor-pointer`}
             >
               {logo.name}
             </span>
@@ -489,10 +489,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       </section>
 
       {/* 5. Selected work Section */}
-      <section className="bg-black text-white py-32 px-6 lg:px-16 relative z-30">
-        <div className="max-w-7xl mx-auto space-y-20">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/15 pb-10">
-            <h2 className="font-syne text-5xl sm:text-7xl font-extrabold tracking-tighter">
+      <section className="bg-black text-white py-20 sm:py-32 px-3 sm:px-6 lg:px-16 relative z-30 w-full">
+        <div className="max-w-7xl mx-auto space-y-14 sm:space-y-20">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/15 pb-8 sm:pb-10">
+            <h2 className="font-syne text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter">
               {t('selectedWork')}
             </h2>
 
@@ -513,8 +513,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start"
+            viewport={{ once: false, amount: 0.15 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start w-full"
           >
             {selectedWorks.map((work, idx) => {
               const isEven = idx % 2 === 1;
@@ -530,28 +530,28 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                   onMouseEnter={() => sounds.playHover()}
                   data-cursor="EXPLORE"
                   data-cursor-variant="project"
-                  className={`group cursor-pointer space-y-4 ${isEven ? 'md:mt-20' : ''}`}
+                  className={`group cursor-pointer space-y-4 w-full ${isEven ? 'md:mt-20' : ''}`}
                 >
                   {/* Card Visual Container */}
-                  <div className={`w-full h-96 md:h-[32rem] rounded-[2rem] ${work.bgGradient} border border-white/10 p-8 flex flex-col justify-between overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 shadow-2xl relative`}>
+                  <div className={`w-full h-80 sm:h-96 md:h-[32rem] rounded-[1.8rem] sm:rounded-[2rem] ${work.bgGradient} border border-white/10 p-6 sm:p-8 flex flex-col justify-between overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 shadow-2xl relative`}>
                     <div className="flex items-center justify-between z-10">
-                      <span className="px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-mono text-gray-300 uppercase tracking-wider border border-white/10">
+                      <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] sm:text-xs font-mono text-gray-300 uppercase tracking-wider border border-white/10">
                         {work.category}
                       </span>
-                      <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
-                        <ArrowUpRight className="w-5 h-5" />
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
+                        <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                     </div>
 
                     <div className="z-10 space-y-1">
-                      <h3 className="font-syne text-3xl font-extrabold text-white group-hover:text-[#00F0FF] transition-colors">
+                      <h3 className="font-syne text-2xl sm:text-3xl font-extrabold text-white group-hover:text-[#00F0FF] transition-colors">
                         {work.title}
                       </h3>
-                      <span className="text-xs font-mono text-gray-400">{work.client} — {work.year}</span>
+                      <span className="text-[11px] sm:text-xs font-mono text-gray-400">{work.client} — {work.year}</span>
                     </div>
                   </div>
 
-                  <p className="font-syne font-bold text-lg md:text-xl text-gray-200 group-hover:text-white transition-colors leading-snug max-w-xl">
+                  <p className="font-syne font-bold text-base sm:text-lg md:text-xl text-gray-200 group-hover:text-white transition-colors leading-snug max-w-xl">
                     {work.summary}
                   </p>
                 </motion.div>
@@ -562,20 +562,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       </section>
 
       {/* 6. Trusted by our clients */}
-      <section className="bg-white text-black py-28 px-6 lg:px-16 space-y-24 relative z-30 overflow-hidden">
-        <div className="max-w-7xl mx-auto space-y-16">
-          <h2 className="font-syne text-5xl sm:text-7xl font-extrabold text-center tracking-tighter">
+      <section className="bg-white text-black py-20 sm:py-28 px-3 sm:px-6 lg:px-16 space-y-16 sm:space-y-24 relative z-30 overflow-hidden w-full">
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
+          <h2 className="font-syne text-4xl sm:text-6xl md:text-7xl font-extrabold text-center tracking-tighter">
             {t('trustedClients')}
           </h2>
 
           {/* Reversible Viewport Deck Fan-Out */}
-          <div className="space-y-6">
+          <div className="space-y-6 w-full">
             <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.25 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              viewport={{ once: false, amount: 0.15 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full"
             >
               {clientQuotes.slice(0, 3).map((q, idx) => (
                 <motion.div
@@ -583,7 +583,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                   custom={idx}
                   variants={centralDeckFanOutVariants}
                   onMouseEnter={() => sounds.playHover()}
-                  className={`p-8 rounded-3xl ${q.bgColor} flex flex-col justify-between space-y-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform-gpu`}
+                  className={`p-6 sm:p-8 rounded-3xl ${q.bgColor} flex flex-col justify-between space-y-6 sm:space-y-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform-gpu w-full`}
                 >
                   <div className="space-y-4">
                     <span className="text-3xl text-gray-300 font-serif font-black select-none">“</span>
@@ -602,8 +602,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
               variants={containerVariants}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.25 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+              viewport={{ once: false, amount: 0.15 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full"
             >
               {clientQuotes.slice(3, 5).map((q, idx) => (
                 <motion.div
@@ -611,7 +611,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                   custom={idx + 3}
                   variants={centralDeckFanOutVariants}
                   onMouseEnter={() => sounds.playHover()}
-                  className={`p-8 rounded-3xl ${q.bgColor} flex flex-col justify-between space-y-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform-gpu`}
+                  className={`p-6 sm:p-8 rounded-3xl ${q.bgColor} flex flex-col justify-between space-y-6 sm:space-y-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform-gpu w-full`}
                 >
                   <div className="space-y-4">
                     <span className="text-3xl text-gray-300 font-serif font-black select-none">“</span>
@@ -627,14 +627,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
             </motion.div>
           </div>
 
-          <div className="border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div className="border-t border-gray-200 pt-12 sm:pt-16 grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
             <div className="md:col-span-3">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-black">
                 {t('whyWegolas')}
               </span>
             </div>
             <div className="md:col-span-9">
-              <p className="font-syne text-xl sm:text-2xl font-semibold text-gray-900 leading-relaxed">
+              <p className="font-syne text-lg sm:text-2xl font-semibold text-gray-900 leading-relaxed">
                 {t('whyWegolasDesc')}
               </p>
             </div>
@@ -645,38 +645,38 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.25 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            viewport={{ once: false, amount: 0.15 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full"
           >
-            <motion.div custom={0} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#eef7f5] space-y-4 shadow-sm hover:shadow-md transition-shadow">
+            <motion.div custom={0} variants={centralDeckFanOutVariants} className="p-6 sm:p-8 rounded-3xl bg-[#eef7f5] space-y-4 shadow-sm hover:shadow-md transition-shadow w-full">
               <Star className="w-6 h-6 text-black" />
-              <div className="font-syne font-black text-4xl text-black">15+</div>
+              <div className="font-syne font-black text-3xl sm:text-4xl text-black">15+</div>
               <p className="text-xs font-mono font-bold text-gray-700 uppercase">{t('yearsExp')}</p>
             </motion.div>
 
-            <motion.div custom={1} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow">
+            <motion.div custom={1} variants={centralDeckFanOutVariants} className="p-6 sm:p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow w-full">
               <Award className="w-6 h-6 text-black" />
-              <div className="font-syne font-bold text-xl text-black pt-4">
+              <div className="font-syne font-bold text-lg sm:text-xl text-black pt-2 sm:pt-4">
                 Recognized by leading design awards
               </div>
             </motion.div>
 
-            <motion.div custom={2} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#eef7f5] space-y-4 shadow-sm hover:shadow-md transition-shadow">
+            <motion.div custom={2} variants={centralDeckFanOutVariants} className="p-6 sm:p-8 rounded-3xl bg-[#eef7f5] space-y-4 shadow-sm hover:shadow-md transition-shadow w-full">
               <Globe className="w-6 h-6 text-black" />
-              <div className="font-syne font-black text-4xl text-black">300+</div>
+              <div className="font-syne font-black text-3xl sm:text-4xl text-black">300+</div>
               <p className="text-xs font-mono font-bold text-gray-700 uppercase">{t('deliveredWorld')}</p>
             </motion.div>
 
-            <motion.div custom={3} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow">
+            <motion.div custom={3} variants={centralDeckFanOutVariants} className="p-6 sm:p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow w-full">
               <Briefcase className="w-6 h-6 text-black" />
-              <div className="font-syne font-bold text-xl text-black">
+              <div className="font-syne font-bold text-lg sm:text-xl text-black">
                 Long-term Partnerships with global brands
               </div>
             </motion.div>
 
-            <motion.div custom={4} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow">
+            <motion.div custom={4} variants={centralDeckFanOutVariants} className="p-6 sm:p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow w-full">
               <RefreshCw className="w-6 h-6 text-black" />
-              <div className="font-syne font-bold text-xl text-black">
+              <div className="font-syne font-bold text-lg sm:text-xl text-black">
                 Strategy, design & development – all in-house
               </div>
             </motion.div>
@@ -685,10 +685,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       </section>
 
       {/* 7. Insights Section */}
-      <section className="bg-black text-white py-32 px-6 lg:px-16 relative z-30">
+      <section className="bg-black text-white py-20 sm:py-32 px-3 sm:px-6 lg:px-16 relative z-30 w-full">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="flex items-center justify-between border-b border-white/15 pb-8">
-            <h2 className="font-syne text-5xl sm:text-7xl font-extrabold tracking-tighter">
+            <h2 className="font-syne text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter">
               {t('insights')}
             </h2>
 
@@ -708,8 +708,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.25 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            viewport={{ once: false, amount: 0.15 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full"
           >
             {insightsArticles.map((art, idx) => (
               <motion.div
@@ -722,15 +722,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                 }}
                 onMouseEnter={() => sounds.playHover()}
                 data-cursor="READ"
-                className="group cursor-pointer space-y-4"
+                className="group cursor-pointer space-y-4 w-full"
               >
-                <div className={`w-full h-72 rounded-3xl ${art.bgGradient} p-6 flex flex-col justify-end overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 shadow-2xl border border-white/10 relative`}>
-                  <span className="text-black/40 font-mono text-xs font-bold uppercase tracking-widest">{art.illustrationText}</span>
+                <div className={`w-full h-64 sm:h-72 rounded-3xl ${art.bgGradient} p-6 flex flex-col justify-end overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 shadow-2xl border border-white/10 relative`}>
+                  <span className="text-black/40 font-mono text-[11px] font-bold uppercase tracking-widest">{art.illustrationText}</span>
                 </div>
 
                 <div className="space-y-1">
                   <span className="text-[11px] font-mono text-gray-400 uppercase tracking-wider block">{art.category}</span>
-                  <h3 className="font-syne font-bold text-lg md:text-xl text-white group-hover:text-[#00F0FF] transition-colors leading-snug">
+                  <h3 className="font-syne font-bold text-base sm:text-lg md:text-xl text-white group-hover:text-[#00F0FF] transition-colors leading-snug">
                     {art.title}
                   </h3>
                   <span className="text-xs font-mono text-gray-500 block pt-1">{art.date}</span>
@@ -742,9 +742,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       </section>
 
       {/* 8. FAQ Section */}
-      <section className="bg-black text-white py-32 px-6 lg:px-16 relative z-30">
+      <section className="bg-black text-white py-20 sm:py-32 px-3 sm:px-6 lg:px-16 relative z-30 w-full">
         <div className="max-w-4xl mx-auto space-y-12">
-          <h2 className="font-syne text-5xl sm:text-7xl font-extrabold tracking-tighter text-white">
+          <h2 className="font-syne text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-white">
             {t('faq')}
           </h2>
 
@@ -755,7 +755,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                 <div
                   key={faq.q}
                   className={`border-b border-white/20 transition-all ${
-                    isOpen ? 'py-6 px-4 bg-white/5 rounded-2xl my-2 border-none' : 'py-6'
+                    isOpen ? 'py-5 sm:py-6 px-3 sm:px-4 bg-white/5 rounded-2xl my-2 border-none' : 'py-5 sm:py-6'
                   }`}
                 >
                   <button
@@ -764,11 +764,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                       setOpenFaq(isOpen ? null : idx);
                     }}
                     onMouseEnter={() => sounds.playHover()}
-                    className="w-full text-left font-syne font-bold text-lg sm:text-xl text-white flex items-center justify-between gap-6"
+                    className="w-full text-left font-syne font-bold text-base sm:text-xl text-white flex items-center justify-between gap-4"
                   >
                     <span>{faq.q}</span>
-                    <span className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center shrink-0">
-                      {isOpen ? <X className="w-4 h-4 text-white" /> : <Plus className="w-4 h-4 text-white" />}
+                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/30 flex items-center justify-center shrink-0">
+                      {isOpen ? <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" /> : <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />}
                     </span>
                   </button>
 
@@ -778,7 +778,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="pt-4 text-gray-300 text-sm md:text-base leading-relaxed font-light whitespace-pre-line"
+                        className="pt-4 text-gray-300 text-xs sm:text-base leading-relaxed font-light whitespace-pre-line"
                       >
                         {faq.a}
                       </motion.div>
