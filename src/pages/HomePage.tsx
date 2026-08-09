@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { Play, ArrowUpRight, Plus, X, Star, Award, Globe, Briefcase, RefreshCw } from 'lucide-react';
 import { sounds } from '../components/SoundEffects';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
@@ -11,6 +12,7 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const { t } = useLanguage();
 
   const clientLogos = [
     { name: 'mapbox', font: 'font-sans font-extrabold tracking-tight' },
@@ -336,7 +338,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
     },
   };
 
-  // 2. REVERSIBLE CENTRAL DECK FAN-OUT VARYANTI (Ekrana girince dağılan, çıkınca tekrar merkezde toplanan kartlar)
+  // 2. REVERSIBLE CENTRAL DECK FAN-OUT VARYANTI
   const centralDeckFanOutVariants: Variants = {
     hidden: (index: number) => {
       const stackPositions = [
@@ -378,12 +380,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       {/* 1. Hero Section (Screenshot 1) */}
       <section className="pt-44 pb-16 px-6 lg:px-16 text-center max-w-5xl mx-auto space-y-6 relative bg-white text-black z-10">
         <h1 className="font-syne text-5xl sm:text-7xl md:text-8xl font-extrabold text-black tracking-tighter leading-[1.02]">
-          Digital design & <br />
-          development agency
+          {t('heroTag')}
         </h1>
 
         <p className="text-gray-700 text-lg md:text-2xl max-w-2xl mx-auto font-light leading-relaxed">
-          We design and build digital products, brands and websites for companies ready to move beyond the ordinary.
+          {t('heroDesc')}
         </p>
       </section>
 
@@ -417,17 +418,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
       </section>
 
-      {/* 3. WHAT WE DO Section (Sticky Stacking Cards + Exact Vector SVG Shader Accents Matching User Screenshot) */}
+      {/* 3. WHAT WE DO Section */}
       <section className="px-6 lg:px-16 py-24 max-w-7xl mx-auto space-y-16 relative bg-white text-black z-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           <div className="md:col-span-3 space-y-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-black block">
-              WHAT WE DO
+              {t('whatWeDo')}
             </span>
           </div>
           <div className="md:col-span-9">
             <p className="font-syne text-2xl sm:text-4xl font-bold text-black leading-snug">
-              Since 2010, we've partnered with startups, scale-ups and global companies to design brands, websites and digital products that combine beautiful visuals with measurable business results.
+              {t('whatWeDoDesc')}
             </p>
           </div>
         </div>
@@ -458,7 +459,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                   {item.num}
                 </div>
 
-                {/* 2. ALT KATMAN: Sağ Taraftaki Geometrik SVG (z-0) - Birebir Ekran Görüntüsü Desenleri */}
+                {/* 2. ALT KATMAN: Sağ Taraftaki Geometrik SVG (z-0) */}
                 <div className="absolute bottom-0 right-0 md:right-8 w-64 md:w-96 z-0 pointer-events-none opacity-85">
                   {renderCardSvg(item.svgType)}
                 </div>
@@ -487,12 +488,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
       </section>
 
-      {/* 5. Selected work Section (Pure Black Background) */}
+      {/* 5. Selected work Section */}
       <section className="bg-black text-white py-32 px-6 lg:px-16 relative z-30">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/15 pb-10">
             <h2 className="font-syne text-5xl sm:text-7xl font-extrabold tracking-tighter">
-              Selected work
+              {t('selectedWork')}
             </h2>
 
             <button
@@ -503,7 +504,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
               onMouseEnter={() => sounds.playHover()}
               className="px-6 py-3 rounded-full bg-white text-black font-syne font-bold text-xs uppercase tracking-wider hover:bg-[#00F0FF] transition-colors w-fit"
             >
-              View All Projects
+              {t('viewAllProjects')}
             </button>
           </div>
 
@@ -560,11 +561,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
       </section>
 
-      {/* 6. Trusted by our clients (REVERSIBLE CENTRAL DECK FAN-OUT) */}
+      {/* 6. Trusted by our clients */}
       <section className="bg-white text-black py-28 px-6 lg:px-16 space-y-24 relative z-30 overflow-hidden">
         <div className="max-w-7xl mx-auto space-y-16">
           <h2 className="font-syne text-5xl sm:text-7xl font-extrabold text-center tracking-tighter">
-            Trusted by our clients
+            {t('trustedClients')}
           </h2>
 
           {/* Reversible Viewport Deck Fan-Out */}
@@ -629,12 +630,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
           <div className="border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-3">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-black">
-                WHY WEGOLAS
+                {t('whyWegolas')}
               </span>
             </div>
             <div className="md:col-span-9">
               <p className="font-syne text-xl sm:text-2xl font-semibold text-gray-900 leading-relaxed">
-                For over 15 years, we've been helping startups, scale-ups and global companies transform ambitious ideas into successful digital products. Our work has earned international recognition, but what matters most to us is building long-term partnerships and delivering measurable business value.
+                {t('whyWegolasDesc')}
               </p>
             </div>
           </div>
@@ -650,7 +651,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
             <motion.div custom={0} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#eef7f5] space-y-4 shadow-sm hover:shadow-md transition-shadow">
               <Star className="w-6 h-6 text-black" />
               <div className="font-syne font-black text-4xl text-black">15+</div>
-              <p className="text-xs font-mono font-bold text-gray-700 uppercase">YEARS OF EXPERIENCE</p>
+              <p className="text-xs font-mono font-bold text-gray-700 uppercase">{t('yearsExp')}</p>
             </motion.div>
 
             <motion.div custom={1} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow">
@@ -663,7 +664,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
             <motion.div custom={2} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#eef7f5] space-y-4 shadow-sm hover:shadow-md transition-shadow">
               <Globe className="w-6 h-6 text-black" />
               <div className="font-syne font-black text-4xl text-black">300+</div>
-              <p className="text-xs font-mono font-bold text-gray-700 uppercase">PROJECTS DELIVERED WORLDWIDE</p>
+              <p className="text-xs font-mono font-bold text-gray-700 uppercase">{t('deliveredWorld')}</p>
             </motion.div>
 
             <motion.div custom={3} variants={centralDeckFanOutVariants} className="p-8 rounded-3xl bg-[#f5f4f8] space-y-4 shadow-sm hover:shadow-md transition-shadow">
@@ -688,7 +689,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="flex items-center justify-between border-b border-white/15 pb-8">
             <h2 className="font-syne text-5xl sm:text-7xl font-extrabold tracking-tighter">
-              Insights
+              {t('insights')}
             </h2>
 
             <button
@@ -699,7 +700,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
               onMouseEnter={() => sounds.playHover()}
               className="px-6 py-2.5 rounded-full border border-white/40 text-white font-syne font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-black transition-colors"
             >
-              Visit blog
+              {t('visitBlog')}
             </button>
           </div>
 
@@ -744,7 +745,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       <section className="bg-black text-white py-32 px-6 lg:px-16 relative z-30">
         <div className="max-w-4xl mx-auto space-y-12">
           <h2 className="font-syne text-5xl sm:text-7xl font-extrabold tracking-tighter text-white">
-            FAQ
+            {t('faq')}
           </h2>
 
           <div className="space-y-0 border-t border-white/20">
