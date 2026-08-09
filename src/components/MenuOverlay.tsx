@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowUpRight, Globe, Share2, MessageCircle, Send } from 'lucide-react';
+import { X, ArrowUpRight, Globe, Share2, MessageCircle, Send, Check } from 'lucide-react';
 import { sounds } from './SoundEffects';
+import { useLanguage, LANGUAGES } from '../context/LanguageContext';
 
 interface MenuOverlayProps {
   isOpen: boolean;
@@ -16,12 +17,13 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({
   onNavigate,
   onOpenEstimator,
 }) => {
+  const { currentLangObj, setLanguage, t } = useLanguage();
+
   const pages = [
-    { name: 'Home', id: 'home', num: '01' },
-    { name: 'Services', id: 'services', num: '02' },
-    { name: 'Projects', id: 'projects', num: '03' },
-    { name: 'About', id: 'about', num: '04' },
-    { name: 'Blog', id: 'blog', num: '05' },
+    { name: t('navServices'), id: 'services', num: '01' },
+    { name: t('navProjects'), id: 'projects', num: '02' },
+    { name: t('navAbout'), id: 'about', num: '03' },
+    { name: t('navBlog'), id: 'blog', num: '04' },
   ];
 
   const handleLinkClick = (pageId: string) => {
@@ -55,7 +57,6 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({
               }}
               onMouseEnter={() => sounds.playHover()}
               data-cursor="CLOSE"
-              data-cursor-variant="close"
               aria-label="Close Menu"
               className="p-3 rounded-full bg-white/10 hover:bg-[#FF0055] text-white transition-colors duration-300"
             >
@@ -63,9 +64,9 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({
             </button>
           </div>
 
-          {/* Main Navigation Links */}
+          {/* Main Navigation Links & Mobile Language Switcher */}
           <div className="my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 flex flex-col gap-2 md:gap-4">
+            <div className="lg:col-span-8 flex flex-col gap-3 md:gap-4">
               {pages.map((page, idx) => (
                 <motion.div
                   key={page.id}
@@ -77,7 +78,6 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({
                     onClick={() => handleLinkClick(page.id)}
                     onMouseEnter={() => sounds.playHover()}
                     data-cursor="GO"
-                    data-cursor-variant="hover"
                     className="group flex items-center gap-4 text-left w-full"
                   >
                     <span className="text-xs font-mono text-[#00F0FF] opacity-60 group-hover:opacity-100 transition-opacity">
@@ -90,6 +90,38 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({
                   </button>
                 </motion.div>
               ))}
+
+              {/* Mobile Language Selector Grid */}
+              <div className="pt-6 border-t border-white/10 mt-4 space-y-3">
+                <span className="text-xs font-mono text-gray-400 uppercase tracking-widest block">
+                  Select Language / Dil Seçiniz
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {LANGUAGES.map((lang) => {
+                    const isSelected = currentLangObj.code === lang.code;
+                    return (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          sounds.playClick();
+                          setLanguage(lang.code);
+                        }}
+                        className={`flex items-center justify-between p-3 rounded-xl border text-xs transition-all ${
+                          isSelected
+                            ? 'bg-[#00F0FF]/15 border-[#00F0FF] text-[#00F0FF] font-bold'
+                            : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10 font-medium'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span>{lang.flag}</span>
+                          <span>{lang.nativeName}</span>
+                        </div>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-[#00F0FF]" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
 
             {/* Side Card */}
@@ -99,10 +131,10 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({
                   START A PROJECT
                 </span>
                 <h3 className="font-syne text-2xl font-bold text-white">
-                  Have an idea? Tell us about it.
+                  {t('haveIdea')} {t('tellUs')}
                 </h3>
                 <p className="text-sm text-gray-400 mt-2 font-light">
-                  We design and build digital products, brands and websites for companies ready to move beyond the ordinary.
+                  {t('heroDesc')}
                 </p>
               </div>
 
@@ -115,7 +147,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({
                 onMouseEnter={() => sounds.playHover()}
                 className="w-full py-4 rounded-2xl bg-white text-black font-syne font-bold text-xs uppercase tracking-wider hover:bg-[#00F0FF] transition-colors flex items-center justify-center gap-2"
               >
-                <span>Estimate Cost & Timeline</span>
+                <span>{t('estimateProject')}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
 

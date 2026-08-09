@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-6 py-6 lg:px-16 flex items-center justify-between bg-white/80 backdrop-blur-md transition-colors duration-300">
+    <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 py-4 md:py-6 lg:px-16 flex items-center justify-between bg-white/80 backdrop-blur-md transition-colors duration-300 max-w-full overflow-hidden">
       {/* Brand Logo */}
       <button
         onClick={() => {
@@ -53,13 +53,13 @@ export const Navbar: React.FC<NavbarProps> = ({
         }}
         onMouseEnter={() => sounds.playHover()}
         data-cursor="HOME"
-        className="font-syne font-extrabold text-2xl tracking-tighter text-black hover:opacity-75 transition-opacity"
+        className="font-syne font-extrabold text-xl sm:text-2xl tracking-tighter text-black hover:opacity-75 transition-opacity shrink-0"
       >
         wegolas<span className="text-[#00F0FF]">.</span>
       </button>
 
       {/* Right Navigation & Action Buttons */}
-      <div className="flex items-center gap-4 md:gap-6">
+      <div className="flex items-center gap-2 sm:gap-4 md:gap-6 shrink-0">
         {/* Desktop Text Links */}
         <nav className="hidden md:flex items-center gap-7">
           {navItems.map((item) => (
@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           ))}
         </nav>
 
-        {/* Contacts Black Pill Button */}
+        {/* Contacts Black Pill Button (Visible on tablet & desktop) */}
         <button
           onClick={() => {
             sounds.playClick();
@@ -88,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           }}
           onMouseEnter={() => sounds.playHover()}
           data-cursor="ESTIMATE"
-          className="px-5 py-2.5 rounded-full bg-black text-white font-syne font-bold text-xs tracking-wider uppercase hover:bg-gray-800 transition-colors shadow-sm"
+          className="hidden sm:inline-flex px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-black text-white font-syne font-bold text-xs tracking-wider uppercase hover:bg-gray-800 transition-colors shadow-sm shrink-0"
         >
           {t('navContacts')}
         </button>
@@ -99,13 +99,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           onMouseEnter={() => sounds.playHover()}
           data-cursor={soundEnabled ? "SOUND OFF" : "SOUND ON"}
           aria-label="Toggle Sound"
-          className="p-2.5 rounded-full bg-gray-100 text-gray-700 hover:text-black hover:bg-gray-200 transition-all"
+          className="p-2 sm:p-2.5 rounded-full bg-gray-100 text-gray-700 hover:text-black hover:bg-gray-200 transition-all shrink-0"
         >
           {soundEnabled ? <Volume2 className="w-4 h-4 text-black" /> : <VolumeX className="w-4 h-4 opacity-50" />}
         </button>
 
         {/* Top-Right Language Switcher Dropdown */}
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative shrink-0" ref={dropdownRef}>
           <button
             onClick={() => {
               sounds.playClick();
@@ -113,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             onMouseEnter={() => sounds.playHover()}
             data-cursor="LANG"
-            className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-gray-100 border border-gray-200 text-black hover:bg-gray-200 font-syne font-bold text-xs tracking-wider transition-all"
+            className="flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-gray-100 border border-gray-200 text-black hover:bg-gray-200 font-syne font-bold text-xs tracking-wider transition-all"
           >
             <span className="text-sm">{currentLangObj.flag}</span>
             <span>{currentLangObj.code}</span>
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Language Selection Menu */}
           {langOpen && (
-            <div className="absolute right-0 mt-3 w-48 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/15 shadow-2xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="absolute right-0 mt-3 w-48 rounded-2xl bg-black/95 backdrop-blur-xl border border-white/15 shadow-2xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
               <div className="text-[10px] font-mono text-gray-400 px-3 py-1.5 uppercase tracking-widest border-b border-white/10 mb-1">
                 Select Language
               </div>
@@ -165,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onOpenMenu();
           }}
           onMouseEnter={() => sounds.playHover()}
-          className="md:hidden p-2 rounded-full text-black hover:bg-gray-100"
+          className="md:hidden p-2 rounded-full text-black hover:bg-gray-100 shrink-0"
           aria-label="Open Menu"
         >
           <div className="w-5 h-0.5 bg-black mb-1.5" />
