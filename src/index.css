@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg: #FFFFFF;
+    --color-surface: #F4F4F6;
+    --color-dark: #000000;
+  }
+
+  html {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  /* Custom Sleek Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FFFFFF;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CCCCCC;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+  }
+}
+
+/* Hide cursor on desktop when custom cursor is active */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+  a, button, [role="button"], input, textarea {
+    cursor: none;
+  }
+}
